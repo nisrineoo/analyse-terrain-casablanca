@@ -1,0 +1,200 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "lot": "lot1",
+        "type": "non b\u00e2ti",
+        "prix_marche": 12000,
+        "prix_fiscal": 10000,
+        "note": "Peut accueillir du R+2 r\u00e9sidentiel",
+        "batiment_existant": "",
+        "plan_amenagement": "Zone stable"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -7.603869,
+              33.589886
+            ],
+            [
+              -7.603869,
+              33.599886
+            ],
+            [
+              -7.593869,
+              33.599886
+            ],
+            [
+              -7.593869,
+              33.589886
+            ],
+            [
+              -7.603869,
+              33.589886
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "lot": "lot2",
+        "type": "b\u00e2ti",
+        "prix_marche": 18000,
+        "prix_fiscal": 15000,
+        "note": "B\u00e2timent ancien, R+1 possible en r\u00e9novation",
+        "batiment_existant": "Maison ancienne",
+        "plan_amenagement": "R\u00e9vision r\u00e9cente, densification autoris\u00e9e"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -7.613869,
+              33.579886
+            ],
+            [
+              -7.613869,
+              33.589886
+            ],
+            [
+              -7.603869,
+              33.589886
+            ],
+            [
+              -7.603869,
+              33.579886
+            ],
+            [
+              -7.613869,
+              33.579886
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "lot": "lot3",
+        "type": "industriel",
+        "prix_marche": 9000,
+        "prix_fiscal": 7500,
+        "note": "Convient \u00e0 entrep\u00f4ts ou activit\u00e9 artisanale",
+        "batiment_existant": "Entrep\u00f4t",
+        "plan_amenagement": "Zone industrielle stabilis\u00e9e"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -7.623869,
+              33.569886
+            ],
+            [
+              -7.623869,
+              33.579886
+            ],
+            [
+              -7.613869,
+              33.579886
+            ],
+            [
+              -7.613869,
+              33.569886
+            ],
+            [
+              -7.623869,
+              33.569886
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "lot": "lot4",
+        "type": "sportif",
+        "prix_marche": 8000,
+        "prix_fiscal": 7000,
+        "note": "Terrain nu, ancien terrain communal",
+        "batiment_existant": "",
+        "plan_amenagement": "Zone de projet sportif communal"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -7.633869,
+              33.559886
+            ],
+            [
+              -7.633869,
+              33.569886
+            ],
+            [
+              -7.623869,
+              33.569886
+            ],
+            [
+              -7.623869,
+              33.559886
+            ],
+            [
+              -7.633869,
+              33.559886
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "lot": "lot5",
+        "type": "agricole devenu urbain",
+        "prix_marche": 7000,
+        "prix_fiscal": 6000,
+        "note": "Zone r\u00e9cemment urbanis\u00e9e, permis requis",
+        "batiment_existant": "",
+        "plan_amenagement": "Nouvellement int\u00e9gr\u00e9e \u00e0 l\u2019urbain (PA 2024)"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -7.643869,
+              33.549886
+            ],
+            [
+              -7.643869,
+              33.559886
+            ],
+            [
+              -7.633869,
+              33.559886
+            ],
+            [
+              -7.633869,
+              33.549886
+            ],
+            [
+              -7.643869,
+              33.549886
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -1,64 +1,45 @@
+
 import streamlit as st
 import folium
 from streamlit_folium import st_folium
-geojson_data = {
-"type": "FeatureCollection",
-"features": [
-{
-"type": "Feature",
-"properties": {"lot": "lot1", "name": "Lot 1", "bati": True},
-"geometry": {
-"type": "Polygon",
-"coordinates": [[
-[-7.603869, 33.589886],
-[-7.603869, 33.599886],
-[-7.593869, 33.599886],
-[-7.593869, 33.589886],
-[-7.603869, 33.589886]
-]]
-}
-},
-{
-"type": "Feature",
-"properties": {"lot": "lot2", "name": "Lot 2", "bati": False},
-"geometry": {
-"type": "Polygon",
-"coordinates": [[
-[-7.613869, 33.579886],
-[-7.613869, 33.589886],
-[-7.603869, 33.589886],
-[-7.603869, 33.579886],
-[-7.613869, 33.579886]
-]]
-}
-},
-{
-"type": "Feature",
-"properties": {"lot": "lot3", "name": "Lot 3", "bati": True},
-"geometry": {
-"type": "Polygon",
-"coordinates": [[
-[-7.623869, 33.569886],
-[-7.623869, 33.579886],
-[-7.613869, 33.579886],
-[-7.613869, 33.569886],
-[-7.623869, 33.569886]
-]]
-}
-}
-]
-}
+import json
+
+# Charger les données GeoJSON depuis le fichier
+with open("geojson_terrains_casablanca.json", "r") as f:
+    geojson_data = json.load(f)
+
+# Fonction pour attribuer une couleur à chaque type de terrain
 def style_function(feature):
-if feature["properties"]["bati"]:
-return {"fillColor": "green", "color": "green", "fillOpacity": 0.5, "weight": 1}
-else:
-return {"fillColor": "orange", "color": "orange", "fillOpacity": 0.5, "weight": 1}
+    terrain_type = feature["properties"]["type"]
+    color_map = {
+        "bâti": "red",
+        "non bâti": "green",
+        "industriel": "blue",
+        "sportif": "purple",
+        "agricole devenu urbain": "brown"
+    }
+    return {
+        "fillColor": color_map.get(terrain_type, "gray"),
+        "color": color_map.get(terrain_type, "gray"),
+        "fillOpacity": 0.6,
+        "weight": 1
+    }
+
+# Création de la carte
 m = folium.Map(location=[33.589886, -7.603869], zoom_start=12, tiles="CartoDB positron")
+
+# Ajout des terrains à la carte
 folium.GeoJson(
-geojson_data,
-style_function=style_function,
-tooltip=folium.features.GeoJsonTooltip(fields=["name", "lot", "bati"], aliases=["Nom", "Lot", "Bâti"])
+    geojson_data,
+    style_function=style_function,
+    tooltip=folium.features.GeoJsonTooltip(
+        fields=["lot", "type", "prix_marche", "prix_fiscal", "note", "batiment_existant", "plan_amenagement"],
+        aliases=["Lot", "Type", "Prix du marché", "Prix fiscal", "Note", "Bâtiment existant", "Plan d'aménagement"],
+        localize=True
+    )
 ).add_to(m)
-st.title("Cartographie des lots de Casablanca")
-st.write("Lots bâtis en vert, lots non bâtis en orange.")
+
+# Interface utilisateur
+st.title("Carte interactive des terrains à Casablanca")
+st.write("Chaque terrain est coloré selon sa catégorie. Cliquez dessus pour voir les détails.")
 st_folium(m, width=800, height=600)
